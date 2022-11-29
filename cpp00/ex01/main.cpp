@@ -10,15 +10,14 @@ int main(){
 		std::cout << "TYPE A COMMAND" << std::endl;
 		std::string input;
 		std::getline(std::cin, input);
-		// if (std::cin.eof()) {
-
-		// }
+		if (std::cin.eof()) {
+			break ;
+		}
 		if (!input.compare("ADD")){
 			phonebook.addContact();
 		}
 		else if (!input.compare("DISPLAY")){
 			phonebook.display();
-
 		}
 		else if (!input.compare("EXIT")){
 			break ;

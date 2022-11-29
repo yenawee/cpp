@@ -16,6 +16,7 @@ void PhoneBook::addContact(){
     Contact contact;
     if (!contact.fillInfo()){
         std::cout << "Fill All Info !!" << std::endl;
+        return ;
     }
     int index = m_size;
     if (m_size > 7){
@@ -26,6 +27,10 @@ void PhoneBook::addContact(){
 }
 
 void PhoneBook::display(void){
+    if (!m_size){
+        std::cout << "No Contact Informations!! Please fill out contact informations." << std::endl;
+        return ;
+    }
     int size = (m_size > MAX) ? MAX : m_size;
     displayAll();
     while (true){
@@ -33,7 +38,7 @@ void PhoneBook::display(void){
         std::cout << "Enter a index (0~" << size - 1 << ") " << std::endl;
         std::cout << "(Enter \"Q\" to exit)" << std::endl;
         std::getline(std::cin, input);
-        if (!input.compare("Q")){
+        if (std::cin.eof() || !input.compare("Q")){
             break ;
         }
         if (input.length() > 1 || input[0] - '0' < 0 || input[0] - '0' > m_size - 1){

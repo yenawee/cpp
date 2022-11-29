@@ -2,25 +2,38 @@
 #include <iomanip>
 #include <iostream>
 
-Contact::Contact(void){  
- 
+Contact::Contact(void){
 }
 
 Contact::~Contact(void){
-    std::cout << "Contact destroyed" << std::endl;
 }
 
 int Contact::fillInfo(void){
     std::cout << "Please fill contact fields\nFirst name : " ;
     std::getline(std::cin, m_firstName);
+    if (std::cin.eof()) {
+		exit(1) ;
+    }
     std::cout << "Last name : " ;
     std::getline(std::cin, m_lastName);
+     if (std::cin.eof()) {
+		exit(1) ;
+    }
     std::cout << "Nickname : " ;
     std::getline(std::cin, m_nickName);
+     if (std::cin.eof()) {
+		exit(1) ;
+    }
     std::cout << "PhoneNumber : " ;
     std::getline(std::cin, m_phoneNumber);
+     if (std::cin.eof()) {
+		exit(1) ;
+    }
     std::cout << "DarkestSecret : " ;
     std::getline(std::cin, m_darkestSecret);
+     if (std::cin.eof()) {
+		exit(1) ;
+    }
     if (!m_firstName.length() || !m_lastName.length() || !m_nickName.length() || !m_phoneNumber.length() || !m_darkestSecret.length()){
         return (false);
     }

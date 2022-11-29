@@ -18,7 +18,6 @@ class Contact {
         ~Contact(void);
         int fillInfo(void);
         void show();
-
 };
 
 #endif
