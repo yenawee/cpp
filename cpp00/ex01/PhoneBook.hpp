@@ -1,10 +1,21 @@
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+
+#define MAX 8
+#include "Contact.hpp"
 
 class PhoneBook {
+    private :
+        Contact m_contacts[8];
+        int     m_size;
+        void    displayAll(void);
+        void    displayIndex(int index);
+    
     public :
-        char a1;
-        int  a2;
-        float a3;
-
-        PhoneBook(char p1, int p2, float p3);
-        ~Sample(void);
+        PhoneBook(void);
+        ~PhoneBook(void);
+        void addContact();
+        void display(void);
 };
+
+#endif

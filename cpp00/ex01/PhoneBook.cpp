@@ -1,17 +1,68 @@
-// phone book class 는 contact instance 배열을 가지고 있음 
-// contact class 는 first name, last name, nickname, phone number, and darkest secret 필드를 가지고있다 다 string 으로 해주면 될듯
-
 #include <iostream>
+#include <iomanip>
+#include <cstdlib>
 #include "PhoneBook.hpp"
+#include "Contact.hpp"
 
-Sample::Sample(char p1, int p2, float p3) : a1(p1), a2(p2), a3(p3) {
-    std::cout << "Constructor called" << std::endl;
-    std::cout << "this->a1 = " << this->a1 << std::endl;
-    std::cout << "this->a2 = " << this->a2 << std::endl;
-    std::cout << "this->a3 = " << this->a3 << std::endl;
-} 
+PhoneBook::PhoneBook(void){
+    m_size = 0;
+}
 
-Sample::~Sample(void){
-    std::cout << "Destructor called" << std::endl;
-    return ;
+PhoneBook::~PhoneBook(void){
+    std::cout << "PhoneBook destroyed" << std::endl;
+}
+
+void PhoneBook::addContact(){
+    Contact contact;
+    if (!contact.fillInfo()){
+        std::cout << "Fill All Info !!" << std::endl;
+    }
+    int index = m_size;
+    if (m_size > 7){
+        index = m_size % MAX;
+    }
+    m_contacts[index] = contact;
+    m_size++;
+}
+
+void PhoneBook::display(void){
+    int size = (m_size > MAX) ? MAX : m_size;
+    displayAll();
+    while (true){
+        std::string input;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Enter a index (0~" << size - 1 << ") " << std::endl;
+        std::cout << "(Enter \"Q\" to exit)" << std::endl;
+        std::getline(std::cin, input);
+        if (!input.compare("Q")){
+            break ;
+        }
+        if (input.length() > 1 || input[0] - '0' < 0 || input[0] - '0' > m_size - 1){
+            std::cout << "Enter a correct index !!!!" << std::endl;
+        }
+        else {
+            displayIndex(input[0] - '0');
+        }
+    }
+}
+
+void PhoneBook::displayAll(void){
+    char sep = '|';
+    std::cout << "   Index  " <<  " First Name " << " Last Name " << " Nickname " << std::endl;
+    std::cout << "-------------------------------------------" << std::endl;
+    std::cout << std::right;
+    int size = (m_size > MAX) ? MAX : m_size;
+    for (int i = 0; i < size; i++){
+        std::cout << std::setw(10) << i << sep;
+        m_contacts[i].show();
+    }
+}
+
+void PhoneBook::displayIndex(int index){
+    char sep = '|';
+    std::cout << "   Index  " <<  " First Name " << " Last Name " << " Nickname " << std::endl;
+    std::cout << "-------------------------------------------" << std::endl;
+    std::cout << std::setw(10) << std::right;
+    std::cout << index << sep;
+    m_contacts[index].show();
 }
