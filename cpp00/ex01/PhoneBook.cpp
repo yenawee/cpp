@@ -19,8 +19,8 @@ void PhoneBook::addContact(){
         return ;
     }
     int index = m_size;
-    if (m_size > 7){
-        index = m_size % MAX;
+    if (index > MAX - 1){
+        index = m_size % MAX ;
     }
     m_contacts[index] = contact;
     m_size++;
@@ -32,7 +32,8 @@ void PhoneBook::display(void){
         return ;
     }
     int size = (m_size > MAX) ? MAX : m_size;
-    displayAll();
+    displayAll(size);
+    std::cout << std::endl;
     while (true){
         std::string input;
         std::cout << "Enter a index (0~" << size - 1 << ") " << std::endl;
@@ -46,16 +47,16 @@ void PhoneBook::display(void){
         }
         else {
             displayIndex(input[0] - '0');
+            std::cout << std::endl;
         }
     }
 }
 
-void PhoneBook::displayAll(void){
+void PhoneBook::displayAll(int size){
     char sep = '|';
     std::cout << "   Index  " <<  " First Name " << " Last Name " << " Nickname " << std::endl;
     std::cout << "-------------------------------------------" << std::endl;
     std::cout << std::right;
-    int size = (m_size > MAX) ? MAX : m_size;
     for (int i = 0; i < size; i++){
         std::cout << std::setw(10) << i << sep;
         m_contacts[i].show();
