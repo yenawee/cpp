@@ -30,7 +30,6 @@ void PhoneBook::display(void){
     displayAll();
     while (true){
         std::string input;
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cout << "Enter a index (0~" << size - 1 << ") " << std::endl;
         std::cout << "(Enter \"Q\" to exit)" << std::endl;
         std::getline(std::cin, input);
