@@ -11,16 +11,15 @@ Contact::~Contact(void){
 }
 
 int Contact::fillInfo(void){
-    std::cout << "Please fill contact fields" << std::endl;
-    std::cout << "First name : ";
+    std::cout << "Please fill contact fields\nFirst name : " ;
     std::getline(std::cin, m_firstName);
-    std::cout << "Last name : " << std::endl;
+    std::cout << "Last name : " ;
     std::getline(std::cin, m_lastName);
-    std::cout << "Nickname : " << std::endl;
+    std::cout << "Nickname : " ;
     std::getline(std::cin, m_nickName);
-    std::cout << "PhoneNumber : " << std::endl;
+    std::cout << "PhoneNumber : " ;
     std::getline(std::cin, m_phoneNumber);
-    std::cout << "DarkestSecret : " << std::endl;
+    std::cout << "DarkestSecret : " ;
     std::getline(std::cin, m_darkestSecret);
     if (!m_firstName.length() || !m_lastName.length() || !m_nickName.length() || !m_phoneNumber.length() || !m_darkestSecret.length()){
         return (false);
