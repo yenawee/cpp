@@ -1,4 +1,4 @@
 TARGET = account
-SRCS = Account.cpp tests.cpp
+SRCS = tests.cpp Account.cpp 
 
 include ../template.mk

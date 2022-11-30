@@ -10,7 +10,7 @@ Contact::~Contact(void){
 
 int Contact::fillInfo(void){
     std::string prompt[5] = {"First name : ", "Last name : ", "Nickname : ", "Phone number : ", "Darkest secret : "};
-    static void ( Contact::*func[5] )( std::string ) = {
+    void ( Contact::*func[5] )( std::string ) = {
 		&Contact::setFirstName, &Contact::setLastName, &Contact::setNickName,
 		&Contact::setPhoneNumber, &Contact::setDarkestSecret };
     std::cout << "Please fill contact fields\n";
@@ -21,7 +21,7 @@ int Contact::fillInfo(void){
         if (std::cin.eof()){
             exit(1);
         }
-        if (input.length() == 0){
+        if (input.length() != 1 || input[0] - '0' < 0 || input[0] - '0' > 8){
             return (false);
         }
        (this->*func[i])(input);
