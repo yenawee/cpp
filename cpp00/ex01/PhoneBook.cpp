@@ -1,5 +1,3 @@
-#include <iostream>
-#include <iomanip>
 #include <cstdlib>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
@@ -42,7 +40,7 @@ void PhoneBook::display(void){
         if (std::cin.eof() || !input.compare("Q")){
             break ;
         }
-        if (input.length() > 1 || input[0] - '0' < 0 || input[0] - '0' > m_size - 1){
+        if (input.length() != 1 || input[0] - '0' < 0 || input[0] - '0' > size - 1){
             std::cout << "Enter a correct index !!!!" << std::endl;
         }
         else {

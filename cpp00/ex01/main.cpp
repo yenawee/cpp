@@ -1,5 +1,3 @@
-#include <iostream>
-#include <string>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
@@ -16,7 +14,7 @@ int main(){
 		if (!input.compare("ADD")){
 			phonebook.addContact();
 		}
-		else if (!input.compare("DISPLAY")){
+		else if (!input.compare("SEARCH")){
 			phonebook.display();
 		}
 		else if (!input.compare("EXIT")){
