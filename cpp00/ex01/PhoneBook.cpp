@@ -45,7 +45,6 @@ void PhoneBook::display(void){
         }
         else {
             displayIndex(input[0] - '0');
-            std::cout << std::endl;
         }
     }
 }
@@ -62,10 +61,5 @@ void PhoneBook::displayAll(int size){
 }
 
 void PhoneBook::displayIndex(int index){
-    char sep = '|';
-    std::cout << "   Index  " <<  " First Name " << " Last Name " << " Nickname " << std::endl;
-    std::cout << "-------------------------------------------" << std::endl;
-    std::cout << std::setw(10) << std::right;
-    std::cout << index << sep;
-    m_contacts[index].show();
+    m_contacts[index].showAll();
 }

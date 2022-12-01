@@ -25,6 +25,7 @@ class Contact {
         ~Contact(void);
         int fillInfo(void);
         void show();
+        void showAll();
 };
 
 #endif

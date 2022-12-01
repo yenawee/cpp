@@ -67,6 +67,14 @@ void Contact::show(){
     std::cout << std::setw(10) << newNickName << std::endl;
 }
 
+void Contact::showAll(){
+    std::cout << "First name : " << m_firstName << std::endl;
+    std::cout << "Last name : " << m_lastName << std::endl;
+    std::cout << "Nick name : " << m_nickName << std::endl;
+    std::cout << "Phone number : " << m_phoneNumber << std::endl;
+    std::cout << "Darkest secret : " << m_darkestSecret << std::endl;
+    std::cout << std::endl;
+}
 
 
 
