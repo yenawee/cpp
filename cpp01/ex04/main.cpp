@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv){
     if (argc != 4){
-        std::cout << "parameters needed : filename, string1, string2 " << std::cout;
+        std::cout << "parameters needed : filename, string1, string2 " << std::endl;
     }
     else {
         char *filename = argv[1];
