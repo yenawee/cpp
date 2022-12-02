@@ -11,6 +11,8 @@ class Harl {
         void info(void);
         void warning(void);
         void error(void);
+        void wrongInput(void);
+        int hash(std::string str);
 
     public :
         Harl();

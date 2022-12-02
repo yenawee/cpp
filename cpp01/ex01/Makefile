@@ -1,4 +1,4 @@
-TARGET = zombihorde
-SRCS = main.cpp Zombie.cpp zombiHorde.cpp
+TARGET = zombiehorde
+SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 
 include ../template.mk

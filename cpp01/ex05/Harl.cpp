@@ -22,18 +22,26 @@ void Harl::error(void){
 
 };
 
-void Harl::complain(std::string level){
-    std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    static void (Harl::*func[4]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+void Harl::wrongInput(void){
+    std::cout << "wrong input !" << std::endl;
+}
 
-    int i = 0;
-    while (i < 4) {
-        if (!level.compare(levels[i])){
-            break ;
-        }
-        i++;
+void Harl::complain(std::string level){
+    std::string Keys[5] = {"dummy", "WARNING", "INFO", "ERROR", "DEBUG"};
+    static void (Harl::*func[5]) (void) = {&Harl::wrongInput, &Harl::warning, &Harl::info, &Harl::error, &Harl::debug};
+
+    int index = hash(level);
+    if (Keys[index] == level){
+        (this->*func[index])();
     }
-    if (i < 4){
-        (this->*func[i])();
+    else {
+        wrongInput();
     }
+}
+
+int Harl::hash(std::string str){
+    unsigned long hash = 5381;
+    hash = (((hash << 5) + hash) + str.front()) % 5;
+    hash = (((hash << 5) + hash) + str.back()) % 5;
+    return hash % 5;
 }

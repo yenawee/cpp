@@ -21,10 +21,10 @@ void stringreplace(char *filename, std::string str1, std::string str2){
         content.append(buffer + '\n');
     }
     size_t pos = content.find(str1, 0);
-    while (pos < content.length() - 1){
+    while (pos < content.length()){
         content.erase(pos, str1.length());
         content.insert(pos, str2);
-        pos = content.find(str1, pos + 1);
+        pos = content.find(str1, pos + str2.size());
     }
     std::string filenamestr(filename);
     filenamestr.append(".replace");
