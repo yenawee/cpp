@@ -3,32 +3,32 @@
 // constructor and destructor
  
 Fixed::Fixed() : _n(0) {
-     std::cout << "Default constructor called" << std::endl;
+    //  std::cout << "Default constructor called" << std::endl;
  };
 
 Fixed::Fixed(Fixed const & src){
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
     *this = src;
 }
 
 Fixed::Fixed(int const n){
-    std::cout << "Int constructor called" << std::endl;
+    // std::cout << "Int constructor called" << std::endl;
     _n = n << _N_OF_FRACTIONAL_BITS;
 }
 
 Fixed::Fixed(float const n){
-    std::cout << "Float constructor called" << std::endl;
+    // std::cout << "Float constructor called" << std::endl;
     _n = std::roundf(n * (1 << _N_OF_FRACTIONAL_BITS));
 }
 
 Fixed::~Fixed() {
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
 }
 
 // copy assignment operator
         
 Fixed & Fixed::operator=(Fixed const & rhs){
-    std::cout << "Copy assignment operator called" << std::endl;
+    // std::cout << "Copy assignment operator called" << std::endl;
     if (this != &rhs){
         this->_n = rhs.getRawBits();
     }

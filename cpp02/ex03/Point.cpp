@@ -13,6 +13,7 @@ Point::Point(Point const & src) : x(src.getX()), y(src.getY()){
 };
 
 Point & Point::operator=(Point const & rhs){
+    (void) rhs;
     return *this;
 }
 
