@@ -6,7 +6,7 @@
 class Fixed {
     private :
         int _n;
-        static const int _N_OF_BITS = 8;
+        static const int _N_OF_FRACTIONAL_BITS = 8;
     
     public :
         Fixed();

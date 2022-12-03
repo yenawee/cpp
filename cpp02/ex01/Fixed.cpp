@@ -10,12 +10,13 @@ Fixed::Fixed(Fixed const & src){
 }
 
 Fixed::Fixed(int const n){
-    
-
+    std::cout << "Int constructor called" << std::endl;
+    n << _N_OF_FRACTIONAL_BITS;
+    _n = n;
 }
 
 Fixed::Fixed(float const n){
-
+    std::cout << "Float constructor called" << std::endl;
 
 }
 
@@ -37,4 +38,12 @@ int Fixed::getRawBits( void ) const{
 void Fixed::setRawBits( int const raw ){
     std::cout << "set Rawbits " << _n << "to" << raw << std::endl;
     _n = raw;
+}
+
+float Fixed::toFloat(void) const{
+
+}
+
+int Fixed::toInt(void) const{
+    
 }
