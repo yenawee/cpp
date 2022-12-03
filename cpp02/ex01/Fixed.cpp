@@ -11,13 +11,12 @@ Fixed::Fixed(Fixed const & src){
 
 Fixed::Fixed(int const n){
     std::cout << "Int constructor called" << std::endl;
-    n << _N_OF_FRACTIONAL_BITS;
-    _n = n;
+    _n = n << _N_OF_FRACTIONAL_BITS;
 }
 
 Fixed::Fixed(float const n){
     std::cout << "Float constructor called" << std::endl;
-
+    _n = std::roundf(n * (1 << _N_OF_FRACTIONAL_BITS));
 }
 
 Fixed::~Fixed() {
@@ -26,12 +25,13 @@ Fixed::~Fixed() {
         
 Fixed & Fixed::operator=(Fixed const & rhs){
     std::cout << "Copy assignment operator called" << std::endl;
-    this->_n = rhs.getRawBits();
+    if (this != &rhs){
+        this->_n = rhs.getRawBits();
+    }
     return *this;
 }
 
 int Fixed::getRawBits( void ) const{
-    std::cout << "getRawBits member function called" << std::endl;
     return _n;
 }
 
@@ -41,9 +41,14 @@ void Fixed::setRawBits( int const raw ){
 }
 
 float Fixed::toFloat(void) const{
-
+    return (_n / float(1 << _N_OF_FRACTIONAL_BITS));
 }
 
 int Fixed::toInt(void) const{
-    
+    return (_n >> _N_OF_FRACTIONAL_BITS);
+}
+
+std::ostream & operator<<(std::ostream & o, Fixed const & rhs){
+    o << rhs.toFloat();
+    return o;
 }
