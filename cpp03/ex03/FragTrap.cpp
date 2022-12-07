@@ -1,5 +1,9 @@
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap() : ClapTrap(){
+    std::cout << "FragTrap created. default " << std::endl;
+}
+
 FragTrap::FragTrap(std::string name) : ClapTrap(name){
     hitPoints = 100;
     energyPoints = 100;
@@ -28,12 +32,12 @@ FragTrap & FragTrap::operator=(FragTrap const & src){
 
 void FragTrap::attack(const std::string & target){
     if (hitPoints == 0 || energyPoints == 0){
-        std::cout << "FragTrap (" << name << ") can't attack target ! (lack of hit Points or energy Points) " << 
+        std::cout << "FragTrap (" << name << ") can't attack target ! (lack of hit Points or energy Points) " <<
         "hit Points : " << hitPoints << ", energy Points : " << energyPoints << std::endl;
         return ;
     }
     energyPoints--;
-    std::cout << "FragTrap (" << name << ") attacks " << target 
+    std::cout << "FragTrap (" << name << ") attacks " << target
     << " causing " << attackDamage << " points of damage!" << std::endl;
 }
 

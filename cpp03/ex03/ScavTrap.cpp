@@ -1,11 +1,15 @@
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap() : ClapTrap(){
+    std::cout << "ScavTrap created. default " << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
     hitPoints = 100;
     energyPoints = 50;
     attackDamage = 20;
     std::cout << "ScavTrap created. name : " << name << std::endl;
-    
+
 }
 
 ScavTrap::ScavTrap(ScavTrap const & src) : ClapTrap(src.getName()) {
@@ -31,12 +35,12 @@ ScavTrap & ScavTrap::operator=(ScavTrap const & src){
 
 void ScavTrap::attack(const std::string & target){
     if (hitPoints == 0 || energyPoints == 0){
-        std::cout << "ScavTrap (" << name << ") can't attack target ! (lack of hit Points or energy Points) " << 
+        std::cout << "ScavTrap (" << name << ") can't attack target ! (lack of hit Points or energy Points) " <<
         "hit Points : " << hitPoints << ", energy Points : " << energyPoints << std::endl;
         return ;
     }
     energyPoints--;
-    std::cout << "ScavTrap (" << name << ") attacks " << target 
+    std::cout << "ScavTrap (" << name << ") attacks " << target
     << " causing " << attackDamage << " points of damage!" << std::endl;
 }
 

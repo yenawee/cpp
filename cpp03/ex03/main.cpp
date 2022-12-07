@@ -1,11 +1,10 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(){
-    FragTrap b("malibu");
+    DiamondTrap b("malibu");
 
-    ClapTrap *a = &b;
+    b.whoAmI();
 
-   a->attack("target");
-   a->takeDamage(150);
- 
+
+
 }

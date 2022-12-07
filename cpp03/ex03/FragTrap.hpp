@@ -3,8 +3,9 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap {
-    public : 
+class FragTrap : virtual public ClapTrap {
+    public :
+        FragTrap();
         FragTrap(std::string name);
         FragTrap(FragTrap const & src);
         ~FragTrap();
