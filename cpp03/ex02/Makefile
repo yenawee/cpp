@@ -1,3 +1,3 @@
-SRCS = main.cpp ClapTrap.cpp
+SRCS = main.cpp ClapTrap.cpp FragTrap.cpp
 
 include ../template.mk

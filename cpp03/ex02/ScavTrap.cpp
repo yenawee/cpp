@@ -9,7 +9,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 }
 
 ScavTrap::ScavTrap(ScavTrap const & src) : ClapTrap(src.getName()) {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "ScavTrap Copy constructor called" << std::endl;
     *this = src;
 };
 
