@@ -8,7 +8,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
     hitPoints = 100;
     energyPoints = 50;
     attackDamage = 20;
-    std::cout << "ScavTrap created. name : " << name << std::endl;
+    std::cout << "ScavTrap created (name : " << name << ")" << std::endl;
 
 }
 
@@ -19,8 +19,7 @@ ScavTrap::ScavTrap(ScavTrap const & src) : ClapTrap(src.getName()) {
 
 
 ScavTrap::~ScavTrap(){
-    std::cout  << "ScavTrap destroyed. name : " << name << std::endl;
-
+    std::cout  << "ScavTrap destroyed (name : " << name << ")" << std::endl;
 };
 
 ScavTrap & ScavTrap::operator=(ScavTrap const & src){
