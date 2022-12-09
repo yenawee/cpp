@@ -1,11 +1,16 @@
 #include "FragTrap.hpp"
 
 int main(){
-    FragTrap b("malibu");
+    FragTrap frag("frog");
 
-    ClapTrap *a = &b;
+    std::cout << "hitpoints : " << frag.getHitPoints() << std::endl;
+    std::cout << "energy points : " << frag.getEnergyPoints() << std::endl;
+    std::cout << "attack damage : " << frag.getAttackDamage() << std::endl;
 
-   a->attack("target");
-   a->takeDamage(150);
- 
+    frag.highFivesGuys();
+
+    ClapTrap *a = &frag;
+    a->attack("target");
+
+
 }

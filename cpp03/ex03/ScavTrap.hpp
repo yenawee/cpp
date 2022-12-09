@@ -3,8 +3,11 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap
-{
+class ScavTrap : virtual public ClapTrap {
+    protected :
+        static const int SCAV_HP = 100;
+        static const int SCAV_EP = 50;
+        static const int SCAV_AD = 20;
     public :
         ScavTrap();
         ScavTrap(std::string name);

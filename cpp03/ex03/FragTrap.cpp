@@ -5,10 +5,10 @@ FragTrap::FragTrap() : ClapTrap(){
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name){
-    hitPoints = 100;
-    energyPoints = 100;
-    attackDamage = 30;
-    std::cout << "FragTrap created. name : " << name << std::endl;
+    hitPoints = FRAG_HP;
+    energyPoints = FRAG_EP;
+    attackDamage = FRAG_AD;
+    std::cout << "FragTrap created (name : " << name << ")" << std::endl;
 }
 
 FragTrap::FragTrap(FragTrap const & src) : ClapTrap(src.getName()){
@@ -17,7 +17,7 @@ FragTrap::FragTrap(FragTrap const & src) : ClapTrap(src.getName()){
 }
 
 FragTrap::~FragTrap(){
-    std::cout  << "FragTrap destroyed. name : " << name << std::endl;
+    std::cout  << "FragTrap destroyed (name : " << name << ")" << std::endl;
 }
 
 FragTrap & FragTrap::operator=(FragTrap const & src){

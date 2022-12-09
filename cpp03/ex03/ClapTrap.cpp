@@ -65,3 +65,19 @@ void ClapTrap::beRepaired(unsigned int amount){
     << " to " << hitPoints + amount << std::endl;
     hitPoints += amount;
 }
+
+std::string ClapTrap::getName() const {
+    return name;
+}
+
+unsigned int ClapTrap::getHitPoints() const{
+    return hitPoints;
+}
+
+unsigned int ClapTrap::getEnergyPoints() const{
+    return energyPoints;
+}
+
+unsigned int ClapTrap::getAttackDamage() const{
+    return attackDamage;
+}

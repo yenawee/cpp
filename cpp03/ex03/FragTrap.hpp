@@ -4,6 +4,10 @@
 #include "ClapTrap.hpp"
 
 class FragTrap : virtual public ClapTrap {
+    protected :
+        static const int FRAG_HP = 100;
+        static const int FRAG_EP = 100;
+        static const int FRAG_AD = 30;
     public :
         FragTrap();
         FragTrap(std::string name);

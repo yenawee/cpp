@@ -4,11 +4,12 @@ DiamondTrap::DiamondTrap() : ScavTrap(), FragTrap(){
 	std::cout << "Diamond Trap created. default" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name){
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name + "_clap_name"), FragTrap(name + "_clap_name"){
 	this->name = name;
-	hitPoints = FragTrap::getHitPoints();
-	energyPoints = ScavTrap::getEnergyPoints();
-	attackDamage = FragTrap::getAttackDamage();
+	hitPoints = FRAG_HP;
+	energyPoints = SCAV_EP;
+	attackDamage = FRAG_AD;
+	std::cout << "DiamondTrap created (name : " <<  name << ")" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const & src){
@@ -18,8 +19,7 @@ DiamondTrap::DiamondTrap(DiamondTrap const & src){
 
 
 DiamondTrap::~DiamondTrap(){
-    std::cout  << "DiamondTrap destroyed. name : " << name << std::endl;
-
+    std::cout  << "DiamondTrap destroyed (name : " << name << ")" << std::endl;
 }
 
 DiamondTrap & DiamondTrap::operator=(DiamondTrap const & src){

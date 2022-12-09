@@ -1,13 +1,13 @@
-ifndef TARGET 
+ifndef TARGET
 	TARGET = a.out
 endif
 
 ifndef SRCS
-	SRCS = 
+	SRCS =
 endif
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -std=c++98 -Wshadow -Wno-shadow
 OBJS_DIR = objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o))
 
@@ -24,10 +24,10 @@ $(addprefix $(OBJS_DIR), %.o) : %.cpp
 
 clean :
 	rm -rf $(OBJS_DIR)
-	
+
 fclean : clean
 	rm -f $(TARGET)
-	
+
 re :
 	make fclean
 	make all

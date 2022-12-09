@@ -5,23 +5,21 @@ ScavTrap::ScavTrap() : ClapTrap(){
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-    hitPoints = 100;
-    energyPoints = 50;
-    attackDamage = 20;
-    std::cout << "ScavTrap created. name : " << name << std::endl;
-
+    hitPoints = SCAV_HP;
+    energyPoints = SCAV_EP;
+    attackDamage = SCAV_AD;
+    std::cout << "ScavTrap created (name : " << name << ")" << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const & src) : ClapTrap(src.getName()) {
-    std::cout << "ScavTrap Copy constructor called" << std::endl;
+    std::cout << "Copy constructor called" << std::endl;
     *this = src;
-};
+}
 
 
 ScavTrap::~ScavTrap(){
-    std::cout  << "ScavTrap destroyed. name : " << name << std::endl;
-
-};
+    std::cout  << "ScavTrap destroyed (name : " << name << ")" << std::endl;
+}
 
 ScavTrap & ScavTrap::operator=(ScavTrap const & src){
     if (this != &src){

@@ -14,7 +14,7 @@ class ClapTrap {
         ClapTrap();
         ClapTrap(std::string name);
         ClapTrap(ClapTrap const & src);
-        ~ClapTrap();
+        virtual ~ClapTrap();
         ClapTrap & operator=(ClapTrap const & rhs);
         virtual void attack(const std::string& target);
         void takeDamage(unsigned int amount);
