@@ -1,0 +1,54 @@
+
+	{
+		"setHPP": {
+		  "prefix": ">setHPP",
+		  "body": [
+			"#ifndef ${1:${TM_FILENAME_BASE}}_HPP",
+			"# define ${1:${TM_FILENAME_BASE}}_HPP",
+			"",
+			"class ${1:${TM_FILENAME_BASE}}",
+			"{",
+			"\tprivate:",
+			"\tpublic:",
+			"\t\t${1:${TM_FILENAME_BASE}}(void);",
+			"\t\t${1:${TM_FILENAME_BASE}}(const ${TM_FILENAME_BASE} & src);",
+			"\t\tvirtual ~${1:${TM_FILENAME_BASE}}(void);",
+			"\t\t${1:${TM_FILENAME_BASE}} & operator=(const ${TM_FILENAME_BASE} & rhs);",
+			"};",
+			"",
+			"#endif"
+		  ],
+		  "description": "create cpp clas"
+		},
+	  
+		  "setCPP": {
+		  "prefix": ">setCPP",
+		  "body": [
+			"#include \"${TM_FILENAME_BASE}.hpp\"",
+			"",
+			"${TM_FILENAME_BASE}::${TM_FILENAME_BASE}(void)",
+			"{ \n\tstd::cout << \"${TM_FILENAME_BASE} created. Default.\" << std::endl; \n}",
+			"",
+			"${TM_FILENAME_BASE}::${TM_FILENAME_BASE}(const ${TM_FILENAME_BASE} & src)",
+			"{ \n\tstd::cout << \"Copy constructor called. \" << std::endl; \n\t *this = src; \n}",
+			"",
+			"${TM_FILENAME_BASE}::~${TM_FILENAME_BASE}(void)",
+			"{ \n\tstd::cout << \"${TM_FILENAME_BASE} destroyed.\" << std::endl; \n}",
+			"",
+			"${TM_FILENAME_BASE} & ${TM_FILENAME_BASE}::operator=(const ${TM_FILENAME_BASE} & rhs)",
+			"{",
+			"\tif (this != &rhs)",
+			"\t{\n\t}",
+			"\treturn *this;",
+			"}"
+		  ],
+		  "description": "basic cpp class"
+		},
+	  
+	  
+		"std::cout": {
+		  "prefix": ">print_line",
+		  "body": "std::cout << \"$1\" << std::endl;",
+		  "description": "print line"
+		}
+	  }

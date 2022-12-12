@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "C_Cpp.autoAddFileAssociations": false,
         "__bit_reference": "cpp",
         "__config": "cpp",
         "__debug": "cpp",
