@@ -1,3 +1,3 @@
-SRCS = main.cpp Amateria.cpp Character.cpp ICharacter.cpp IMaterialSource.cpp Materia.cpp MaterialSource.cpp
+SRCS = main.cpp AMateria.cpp Materia.cpp Character.cpp MateriaSource.cpp
 
 include ../template.mk
