@@ -10,6 +10,7 @@ int main(){
 
     AAnimal *ani = new Dog();
     ani->makeSound();
+    std::cout << ani->getType() << std::endl;
 
     Cat cat = Cat();
     cat.makeSound();
