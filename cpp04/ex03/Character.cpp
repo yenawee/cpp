@@ -2,7 +2,7 @@
 
 Character::Character(void)
 {
-    std::cout << "Character created. Default." << std::endl;
+    //std::cout << "Character created. Default." << std::endl;
     for (int idx = 0; idx < 4; idx++){
         slots[idx] = NULL;
     }
@@ -10,12 +10,12 @@ Character::Character(void)
 
 Character::Character(const Character & src)
 {
-    std::cout << "Character Copy constructor called. " << std::endl;
+    //std::cout << "Character Copy constructor called. " << std::endl;
      *this = src;
 }
 
 Character::Character(std::string name) : name(name), size(0) {
-    std::cout << "Character created. (name : " << name << ")" << std::endl;
+    //std::cout << "Character created. (name : " << name << ")" << std::endl;
      for (int idx = 0; idx < 4; idx++){
         slots[idx] = NULL;
     }
@@ -28,7 +28,7 @@ Character::~Character(void)
             delete slots[idx];
         }
     }
-    std::cout << "Character destroyed." << std::endl;
+    //std::cout << "Character destroyed." << std::endl;
 }
 
 Character & Character::operator=(const Character & rhs)
@@ -61,6 +61,7 @@ void Character::equip(AMateria* m){
     for (int i = 0; i < 4; i++){
         if (!slots[i]){
             slots[i] = m;
+            //std::cout << "I equiped slot[" << i << "] with Materia " << slots[i]->getType() << std::endl;
             size++;
             break ;
         }
@@ -73,8 +74,12 @@ void Character::unequip(int idx){
         return ;
     }
     if (slots[idx]){
+        std::cout << "I unequiped slot[" << idx << "] : Materia " << slots[idx]->getType() << std::endl;
         slots[idx] = NULL;
         size--;
+    }
+    else {
+        std::cout << "I can't unequip because slot is empty" << std::endl;
     }
 };
 
@@ -86,4 +91,18 @@ void Character::use(int idx, ICharacter & target){
     if (slots[idx]){
         slots[idx]->use(target);
     }
+    else {
+        std::cout << "I can't use Materia because slot is empty!" << std::endl;
+    }
 };
+
+void Character::showAllSlot() const {
+    for (int idx = 0; idx < 4; idx++){
+        if (slots[idx]){
+            std::cout << "slot[" << idx << "] is " << slots[idx]->getType() << std::endl;
+        }
+        else {
+            std::cout << "slot[" << idx << "] is empty" << std::endl;
+        }
+    }
+}

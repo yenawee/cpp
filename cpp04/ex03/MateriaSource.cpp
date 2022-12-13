@@ -2,7 +2,7 @@
 
 MateriaSource::MateriaSource(void) : IMateriaSource(), size(0)
 {
-    std::cout << "MateriaSource created. Default." << std::endl;
+    //std::cout << "MateriaSource created. Default." << std::endl;
     for (int idx = 0; idx < 4; idx++){
         slots[idx] = NULL;
     }
@@ -10,7 +10,7 @@ MateriaSource::MateriaSource(void) : IMateriaSource(), size(0)
 
 MateriaSource::MateriaSource(const MateriaSource & src)
 {
-    std::cout << "Copy constructor called. " << std::endl;
+    //std::cout << "Copy constructor called. " << std::endl;
      *this = src;
 }
 
@@ -21,7 +21,7 @@ MateriaSource::~MateriaSource(void)
             delete slots[idx];
         }
     }
-    std::cout << "MateriaSource destroyed." << std::endl;
+    //std::cout << "MateriaSource destroyed." << std::endl;
 }
 
 MateriaSource & MateriaSource::operator=(const MateriaSource & rhs)
@@ -65,5 +65,6 @@ AMateria* MateriaSource::createMateria(std::string const & type){
             return tmp;
         }
     }
+    std::cout << "We can't create Materials! Learn Materials first!!" << std::endl;
     return 0;
 }

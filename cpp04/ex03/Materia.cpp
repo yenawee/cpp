@@ -3,16 +3,16 @@
 
 // Ice
 Ice::Ice() : AMateria("ice") {
-    std::cout << "Ice constructed. default" << std::endl;
+    //std::cout << "Ice constructed. default" << std::endl;
 };
 
 Ice::Ice(const Ice & src){
-    std::cout << "Ice Copy constructor called" << std::endl;
+    //std::cout << "Ice Copy constructor called" << std::endl;
     *this = src;
 }
-        
+
 Ice::~Ice(){
-    std::cout << "Ice destructed" << std::endl;
+    //std::cout << "Ice destructed" << std::endl;
 };
 
 Ice & Ice::operator=(const Ice & rhs){
@@ -33,16 +33,16 @@ void Ice::use(ICharacter& target){
 
 // Cure
 Cure::Cure() : AMateria("cure"){
-    std::cout << "Cure constructed. default" << std::endl;
+    //std::cout << "Cure constructed. default" << std::endl;
 };
 
 Cure::Cure(const Cure & src){
-    std::cout << "Cure Copy constructor called" << std::endl;
+    //std::cout << "Cure Copy constructor called" << std::endl;
     *this = src;
 }
-        
+
 Cure::~Cure(){
-    std::cout << "Cure destructed" << std::endl;
+    //std::cout << "Cure destroyed" << std::endl;
 }
 
 Cure & Cure::operator=(const Cure & rhs){
