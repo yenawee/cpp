@@ -5,6 +5,8 @@ Bureaucrat::Bureaucrat(void)
     // std::cout << "Bureaucrat created. Default." << std::endl; 
 }
 
+Bureaucrat::Bureaucrat(std::string const & name, int index) : name(name), index(index)
+
 Bureaucrat::Bureaucrat(const Bureaucrat & src)
 { 
     // std::cout << "Copy constructor called. " << std::endl; 
@@ -34,5 +36,5 @@ int Bureaucrat::getGrade() const{
 }
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs){
-    std::cout << rhs.getName() << ", bureaucrat grade" << rhs.getGrade() << std::endl;
+    std::cout << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
 }
