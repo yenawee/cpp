@@ -1,6 +1,6 @@
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource(void) : size(0)
+MateriaSource::MateriaSource(void) : IMateriaSource(), size(0)
 {
     std::cout << "MateriaSource created. Default." << std::endl;
     for (int idx = 0; idx < 4; idx++){
@@ -58,7 +58,11 @@ void MateriaSource::learnMateria(AMateria* m){
 AMateria* MateriaSource::createMateria(std::string const & type){
     for (int i = 0; i < 4; i++){
         if (slots[i] && slots[i]->getType() == type){
-                return slots[i]->clone();
+            AMateria *tmp = slots[i]->clone();
+            delete slots[i];
+            slots[i] = NULL;
+            size--;
+            return tmp;
         }
     }
     return 0;
