@@ -10,7 +10,7 @@ class Cat : public Animal {
     public:
         Cat(void);
         Cat(const Cat & src);
-        ~Cat(void);
+        virtual ~Cat(void);
         Cat & operator=(const Cat & rhs);
         void makeSound() const;
         Brain *getBrain() const;
