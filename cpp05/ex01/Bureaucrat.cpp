@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void) : name("default"), grade(150)
 {
@@ -14,10 +15,9 @@ Bureaucrat::Bureaucrat(std::string const & name, int grade) : name(name), grade(
     }
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat & src)
+Bureaucrat::Bureaucrat(const Bureaucrat & src) : name(src.getName()), grade(src.getGrade())
 {
     // std::cout << "Copy constructor called. " << std::endl;
-     *this = src;
 }
 
 Bureaucrat::~Bureaucrat(void)
@@ -60,4 +60,21 @@ void Bureaucrat::decrementLevel() {
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs){
     o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
     return o;
+}
+
+void Bureaucrat::signForm(Form & form){
+    if (form.getIsSigned()){
+        std::cout << form.getName() << " is already signed ! " << std::endl;
+		return ;
+    }
+    try {
+        form.beSigned(*this);
+        if (form.getIsSigned()){
+            std::cout << this->getName() << " signed " << form.getName() << std::endl;
+        }
+    }
+    catch (std::exception & e) {
+        std::cout << this->getName() << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
+        std::cout << "My grade : " << this->getGrade() << " , Grade needed to Sign Form : " << form.getGradeToSign() << std::endl;
+    }
 }

@@ -2,25 +2,30 @@
 # define Form_HPP
 
 #include <iostream>
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
 	private:
 		const std::string name;
-		boolean is_signed;
+		bool is_signed;
 		const int grade_to_sign;
 		const int grade_to_execute;
+		Form & operator=(const Form & rhs);
+
 	public:
 		Form(void);
 		Form(const Form & src);
+		Form(const std::string name, const int grade1, const int grade2);
 		virtual ~Form(void);
-		Form & operator=(const Form & rhs);
 
 		//getter
-		const std::string getName() const;
-		boolean getIsSigned() const;
-		const int getGradeToSign() const;
-		const int getGradeToExecute() const;
+		std::string getName() const;
+		bool getIsSigned() const;
+		int getGradeToSign() const;
+		int getGradeToExecute() const;
 
 		//method
 		void beSigned(const Bureaucrat & bureau);
@@ -28,13 +33,13 @@ class Form
 		//exception
 		class GradeTooHighException : public std::exception {
             virtual const char* what() const throw(){
-                return ("🚨 Grade is too High !!!!");
+                return ("[Form exception] 🚨 Grade is too High !!!!");
             }
         };
 
         class GradeTooLowException : public std::exception {
             virtual const char* what() const throw(){
-                return ("🚨 Grade is too Low !!!!");
+                return ("[Form exception] 🚨 Grade is too Low !!!!");
             }
         };
 };
