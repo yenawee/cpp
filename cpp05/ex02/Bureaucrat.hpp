@@ -2,12 +2,12 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #define HIGH_GRADE 1
 #define LOW_GRADE 150
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -28,8 +28,8 @@ class Bureaucrat
         // method
         void incrementLevel();
         void decrementLevel();
-        void signForm(Form & form);
-        void executeForm(Form const & form);
+        void signForm(AForm & form);
+        void executeForm(AForm const & form);
 
         //exception
         class GradeTooHighException : public std::exception {

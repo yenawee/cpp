@@ -42,7 +42,7 @@ std::ostream & operator<<(std::ostream & o, AForm const & rhs){
 }
 
 // getter
-std::string AForm::getName() const{
+const std::string & AForm::getName() const{
 	return name;
 };
 
@@ -67,8 +67,13 @@ void AForm::beSigned(const Bureaucrat & bureau){
 	throw AForm::GradeTooLowException();
 }
 
-bool AForm::is_valid(const Bureaucrat & executor){
-	
-
+void AForm::is_valid(const Bureaucrat & executor) const{
+	if (!is_signed){
+		throw AForm::InvalidCondition();
+	}
+	if (executor.getGrade() > grade_to_execute){
+		throw AForm::GradeTooLowException();
+	}
+	return ;
 }
 

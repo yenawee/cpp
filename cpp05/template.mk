@@ -10,6 +10,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -std=c++98
 OBJS_DIR = objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o))
+FILE = *_shrubbery
 
 all : $(TARGET)
 
@@ -24,6 +25,7 @@ $(addprefix $(OBJS_DIR), %.o) : %.cpp
 
 clean :
 	rm -rf $(OBJS_DIR)
+	if [ -e $(FILE) ]; then rm $(FILE) ; fi
 
 fclean : clean
 	rm -f $(TARGET)

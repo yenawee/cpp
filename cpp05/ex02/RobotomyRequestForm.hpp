@@ -2,6 +2,7 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
+#include <sys/time.h>
 
 class RobotomyRequestForm : public AForm {
     private:
@@ -15,6 +16,7 @@ class RobotomyRequestForm : public AForm {
         virtual ~RobotomyRequestForm(void);
         RobotomyRequestForm & operator=(const RobotomyRequestForm & rhs);
 
+        const std::string & getTarget() const;
         void execute(Bureaucrat const & executor) const;
 
 };

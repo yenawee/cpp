@@ -2,6 +2,7 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm {
     private:
@@ -16,6 +17,15 @@ class ShrubberyCreationForm : public AForm {
         ShrubberyCreationForm & operator=(const ShrubberyCreationForm & rhs);
 
         void execute(Bureaucrat const & executor) const;
+
+        const std::string & getTarget() const;
+
+        //exception
+        class FileIOexception : public std::exception {
+            virtual const char* what() const throw(){
+                return ("[IOS exception] 🚨 Error occurs while control file !!!!");
+            }
+        };
 };
 
 #endif
