@@ -62,7 +62,7 @@ std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs){
     return o;
 }
 
-void Bureaucrat::signForm(Form & form){
+void Bureaucrat::signForm(Form & form) const{
     if (form.getIsSigned()){
         std::cout << form.getName() << " is already signed ! " << std::endl;
 		return ;

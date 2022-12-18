@@ -28,8 +28,8 @@ class Bureaucrat
         // method
         void incrementLevel();
         void decrementLevel();
-        void signForm(AForm & form);
-        void executeForm(AForm const & form);
+        void signForm(AForm & form) const;
+        void executeForm(AForm const & form) const;
 
         //exception
         class GradeTooHighException : public std::exception {
