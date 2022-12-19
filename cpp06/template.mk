@@ -7,7 +7,7 @@ ifndef SRCS
 endif
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJS_DIR = objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o))
 
