@@ -23,8 +23,6 @@ class Conversion
 		std::string _float;
 		std::string _double;
 
-		bool zeroflag;
-
 		static const int CHAR_TYPE = 0;
 		static const int INT_TYPE = 1;
 		static const int FLOAT_TYPE = 2;

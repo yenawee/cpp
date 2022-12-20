@@ -2,14 +2,14 @@
 
 Conversion::Conversion(void):
 	 _c(0), _i(0), _f(0.0f), _d(0.0),
-	_char(""), _int(""), _float(""), _double(""), zeroflag(false)
+	_char(""), _int(""), _float(""), _double("")
 {
 	//std::cout << "Conversion created. Default." << std::endl;
 }
 
 Conversion::Conversion(const char *input) :
 	input(input), _c(0), _i(0), _f(0.0f), _d(0.0),
-	_char(""), _int(""), _float(""), _double(""), zeroflag(false)
+	_char(""), _int(""), _float(""), _double("")
 {
 	//std::cout << "Conversion created." << std::endl;
 }
@@ -38,7 +38,6 @@ Conversion & Conversion::operator=(const Conversion & rhs)
 		_int = rhs._int;
 		_float = rhs._float;
 		_double = rhs._double;
-		zeroflag = rhs.zeroflag;
 	}
 	return *this;
 }
@@ -123,9 +122,6 @@ void Conversion::convertFromInt(double input){
 	}
 	_f = static_cast<float>(input);
 	_d = input;
-	if (static_cast<double>(_i) == input){
-		zeroflag = true;
-	}
 }
 
 void Conversion::convertFromFloat(double input){
@@ -146,9 +142,6 @@ void Conversion::convertFromFloat(double input){
 	}
 	_f = static_cast<float>(input);
 	_d = input;
-	if (static_cast<double>(static_cast<int>(input)) == input){
-		zeroflag = true;
-	}
 }
 
 void Conversion::convertFromDouble(double input){
@@ -175,9 +168,6 @@ void Conversion::convertFromDouble(double input){
 		_f = static_cast<float>(input);
 	}
 	_d = input;
-	if (static_cast<double>(static_cast<int>(input)) == input){
-		zeroflag = true;
-	}
 }
 
 void Conversion::setWrong(){
@@ -208,28 +198,22 @@ void Conversion::intToPrint(std::ostream & o) const {
 }
 
 void Conversion::floatToPrint(std::ostream & o) const {
+	std::cout << std::fixed;
+	std::cout.precision(1);
 	o << "float : ";
 	if (_float.empty()){
-		if (zeroflag){
-			o << _f << ".0f" << std::endl;
-		}
-		else {
-			o << _f << "f" << std::endl;
-		}
+		o << _f << "f" << std::endl;
 		return ;
 	}
 	o << _float + "f" << std::endl;
 }
 
 void Conversion::doubleToPrint(std::ostream & o) const {
+	std::cout << std::fixed;
+	std::cout.precision(1);
 	o << "double : ";
 	if (_double.empty()){
-		if (zeroflag){
-			o << _d << ".0" << std::endl;
-		}
-		else {
-			o << _d << std::endl;
-		}
+		o << _d << std::endl;
 		return ;
 	}
 	o << _double << std::endl;
