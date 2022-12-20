@@ -68,6 +68,11 @@
     "stack": "cpp",
     "__functional_03": "cpp",
     "filesystem": "cpp",
-    "cerrno": "cpp"
+    "cerrno": "cpp",
+    "__bits": "cpp",
+    "clocale": "cpp",
+    "compare": "cpp",
+    "concepts": "cpp",
+    "variant": "cpp"
   }
 }

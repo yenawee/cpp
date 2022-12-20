@@ -1,3 +1,3 @@
-SRCS = main.cpp whatever.cpp
+SRCS = main.cpp
 
 include ../template.mk
