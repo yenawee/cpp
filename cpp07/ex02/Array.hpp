@@ -41,7 +41,12 @@ class Array {
 			if (_array){ delete [] _array; }
 		}
 
-		T & operator[](const int index){
+		T & operator[](const int index) {
+			if (index < 0 || (size_t)index >= _size) {throw Array::outOfRange();}
+			return _array[index];
+		}
+
+		const T & operator[](const int index) const {
 			if (index < 0 || (size_t)index >= _size) {throw Array::outOfRange();}
 			return _array[index];
 		}
