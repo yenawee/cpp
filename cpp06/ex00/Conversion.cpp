@@ -10,10 +10,8 @@ Conversion::Conversion(void):
 Conversion::Conversion(const char *input) :
 	input(input), _c(0), _i(0), _f(0.0f), _d(0.0),
 	_char(""), _int(""), _float(""), _double(""), zeroflag(false)
-
 {
 	//std::cout << "Conversion created." << std::endl;
-
 }
 
 Conversion::Conversion(const Conversion & src)
