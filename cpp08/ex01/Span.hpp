@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <set>
+#include <vector>
 #include <algorithm>
 
 class Span
@@ -10,7 +11,7 @@ class Span
     private:
         std::multiset<int> _set;
         unsigned int _n;
-    
+
     public:
         Span(void);
         Span(unsigned int n);
@@ -19,10 +20,10 @@ class Span
         Span & operator=(const Span & rhs);
 
         void addNumber(const int n);
+        void addNumber(std::vector<int>::iterator start, std::vector<int>::iterator end);
         unsigned int shortestSpan();
         unsigned int longestSpan();
         void printAll();
-        void fillMySpan();
 };
 
 #endif

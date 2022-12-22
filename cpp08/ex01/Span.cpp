@@ -1,24 +1,24 @@
 #include "Span.hpp"
 
 Span::Span(void) : _n(0)
-{ 
-    // std::cout << "Span created. Default." << std::endl; 
+{
+    // std::cout << "Span created. Default." << std::endl;
 }
 
 Span::Span(unsigned int n) : _n(n)
-{ 
-    // std::cout << "Span created. Default." << std::endl; 
+{
+    // std::cout << "Span created. Default." << std::endl;
 }
 
 Span::Span(const Span & src)
-{ 
-    // std::cout << "Copy constructor called. " << std::endl; 
-     *this = src; 
+{
+    // std::cout << "Copy constructor called. " << std::endl;
+     *this = src;
 }
 
 Span::~Span(void)
-{ 
-    // std::cout << "Span destroyed." << std::endl; 
+{
+    // std::cout << "Span destroyed." << std::endl;
 }
 
 Span & Span::operator=(const Span & rhs)
@@ -40,6 +40,16 @@ void Span::addNumber(const int n){
     }
     _set.insert(n);
 }
+
+void Span::addNumber(std::vector<int>::iterator start, std::vector<int>::iterator end){
+    if (_n < static_cast<unsigned int>(std::distance(start, end))){
+        throw std::exception();
+    }
+    for ( ; start != end; start++){
+        addNumber(*start);
+    }
+}
+
 
 unsigned int Span::shortestSpan(){
     if (_set.size() < 2) {throw std::exception();}
@@ -70,6 +80,6 @@ void Span::printAll(){
 	std::multiset<int>::iterator ite = _set.end();
 	for ( ; it != ite; ++it ) {
         std::cout << *it << " ";
-    } 
+    }
 	std::cout << std::endl;
 }
