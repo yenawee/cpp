@@ -2,14 +2,15 @@
 # define SPAN_HPP
 
 #include <iostream>
-#include <vector>
+#include <set>
 #include <algorithm>
 
 class Span
 {
     private:
+        std::multiset<int> _set;
         unsigned int _n;
-        unsigned int _size;
+    
     public:
         Span(void);
         Span(unsigned int n);
@@ -20,7 +21,7 @@ class Span
         void addNumber(const int n);
         unsigned int shortestSpan();
         unsigned int longestSpan();
-
+        void printAll();
 };
 
 #endif
