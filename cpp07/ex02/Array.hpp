@@ -42,20 +42,14 @@ class Array {
 		}
 
 		T & operator[](const int index) {
-			if (index < 0 || (size_t)index >= _size) {throw Array::outOfRange();}
+			if (index < 0 || (size_t)index >= _size) {throw std::out_of_range("index out of range");}
 			return _array[index];
 		}
 
 		const T & operator[](const int index) const {
-			if (index < 0 || (size_t)index >= _size) {throw Array::outOfRange();}
+			if (index < 0 || (size_t)index >= _size) {throw std::out_of_range("index out of range");}
 			return _array[index];
 		}
-
-		class outOfRange : public std::exception {
-			 virtual const char* what() const throw(){
-                return ("index out of range");
-            }
-		};
 
 		size_t size() const{ return _size; }
 };

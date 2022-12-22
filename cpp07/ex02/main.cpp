@@ -3,6 +3,7 @@
 // normal test
 int main(){
 	Array<std::string> arr(3);
+
 	std::cout << arr.size() << std::endl;
 
 	arr[0] = std::string("hi");
@@ -12,7 +13,6 @@ int main(){
 	std::cout << arr[0] << std::endl;
 	std::cout << arr[1] << std::endl;
 	std::cout << arr[2] << std::endl;
-
 	Array<std::string> arr_2(arr);
 
 	arr[0] = std::string("😣");
@@ -26,13 +26,13 @@ int main(){
 }
 
 
-//// index range
-//int main(){
-//	try {
-//		Array<int> arr;
-//		std::cout << arr[1];
-//	}
-//	catch (std::exception & e){
-//		std::cout << e.what() << std::endl;
-//	}
-//}
+// index range
+// int main(){
+// 	try {
+// 		Array<int> arr;
+// 		std::cout << arr[1];
+// 	}
+// 	catch (std::exception & e){
+// 		std::cout << e.what() << std::endl;
+// 	}
+// }

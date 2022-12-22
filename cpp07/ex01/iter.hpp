@@ -5,7 +5,7 @@
 #include <iostream>
 
 template<typename T>
-void iter(T *arr, size_t len, void (*f)(T & value)){
+void iter(T *arr, size_t len, void (*f)(T const & value)){
 	if (!arr || len == 0 || !f){
 		return ;
 	}
@@ -15,12 +15,7 @@ void iter(T *arr, size_t len, void (*f)(T & value)){
 }
 
 template<typename T>
-void _sqrt(T &x){
-	x *= x;
-}
-
-template<typename T>
-void _print(T &x){
+void _print(T const & x){
 	std::cout << x << std::endl;
 }
 
