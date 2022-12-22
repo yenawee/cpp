@@ -22,6 +22,7 @@ class Span
         unsigned int shortestSpan();
         unsigned int longestSpan();
         void printAll();
+        void fillMySpan();
 };
 
 #endif

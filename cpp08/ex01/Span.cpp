@@ -38,11 +38,11 @@ void Span::addNumber(const int n){
     if (_set.size() == _n) {
         throw std::out_of_range("Set is full !! ");
     }
-
     _set.insert(n);
 }
 
 unsigned int Span::shortestSpan(){
+    if (_set.size() < 2) {throw std::exception();}
     unsigned int _min = UINT_MAX;
     std::multiset<int>::iterator it = ++_set.begin();
     std::multiset<int>::iterator ite = _set.end();
@@ -58,12 +58,14 @@ unsigned int Span::shortestSpan(){
 }
 
 unsigned int Span::longestSpan(){
+    if (_set.size() < 2) {throw std::exception();}
     unsigned int _min = *(_set.begin());
     unsigned int _max = *(_set.rbegin());
     return (_max - _min);
 }
 
 void Span::printAll(){
+    std::cout << "set size is " << _set.size() << std::endl;
     std::multiset<int>::iterator it = _set.begin();
 	std::multiset<int>::iterator ite = _set.end();
 	for ( ; it != ite; ++it ) {
