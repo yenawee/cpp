@@ -14,21 +14,18 @@ int main(){
     // std::cout << sp.shortestSpan() << std::endl;
     // std::cout << sp.longestSpan() << std::endl;
 
-    std::vector<int> _vec;
-    _vec.push_back(7);
-    _vec.push_back(10);
-    _vec.push_back(20);
-    _vec.push_back(0);
-    _vec.push_back(100);
-    _vec.push_back(3);
+    int arr[] = {7, 10, 20, 0, 100, 3};
+    std::vector<int> _vec(arr, arr + sizeof(arr) / sizeof(int));
 
     std::vector<int>::iterator start = _vec.begin();
     std::vector<int>::iterator end = _vec.end();
 
     Span sp = Span(6);
     sp.addNumber(start, end);
-
     sp.printAll();
+
+    std::cout << sp.shortestSpan() << std::endl;
+    std::cout << sp.longestSpan() << std::endl;
 
     return 0;
 }
